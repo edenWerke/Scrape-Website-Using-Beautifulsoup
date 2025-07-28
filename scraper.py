@@ -12,10 +12,10 @@ try:
     print(len(products))
     for product in products:
         # product_name = product.find('div', class_='product-details').a.text
-        product_link = product.find('div', class_='product-details').a.get('href')
-        # product_price=product.find('div', class_='product-details').p.get_text() 
+        # product_link = product.find('div', class_='product-details').a.get('href')
+        product_price=product.find('div', class_='product-details').p.get_text(strip=True).split("Ex")[0].replace("ETB", "").strip()
     
         # price = product.find('span', class_='product-price').text.strip()
-        print(product_link)
+        print(product_price)
 except Exception as e:
     print(f"An error occurred: {e}")
